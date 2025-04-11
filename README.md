@@ -110,7 +110,7 @@ Python script that utilizes Apache Spark to sanitize customer data in the Truste
 
 ##### Querying the glue table customer_trusted
 
-![image alt](https://github.com/WaadAlharbi/Spark-With-STEDI-Human-Balance-Analytics/blob/main/Screenshots/customer_landing.png?raw=true)
+![image alt](https://github.com/WaadAlharbi/Spark-With-STEDI-Human-Balance-Analytics/blob/main/Screenshots/customer_trusted.png?raw=true)
 
 
 ##### Machine_learning_curated: 
