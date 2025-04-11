@@ -57,3 +57,72 @@ aws iam put-role-policy --role-name my-glue-service-role --policy-name S3Access 
 
 
 
+### Implementing
+
+#### Athena analysis query on the Landing Zone
+##### Querying the glue table customer_landing
+
+![image](https://github.com/user-attachments/assets/ccb609a3-acf5-4ce5-9b8c-b8cf1c5f9c5f)
+
+
+##### Querying the glue table accelerometer_landing
+
+![image](https://github.com/user-attachments/assets/13944a50-b3f5-4c5e-991b-f8b1bc5814fe)
+
+
+##### Querying the glue table step_trainer_landing 
+
+![image](https://github.com/user-attachments/assets/4ba48060-674a-427a-93e9-3a47764f8b4b)
+
+
+
+#### Glue pipelines to transfer data 
+##### Athena analysis query on the Trusted Zone  
+The customer landing trusted: involves a Python script that utilizes Apache Spark to process and sanitize customer data collected from the website's Landing Zone. This script is designed to filter and retain only those customer records of individuals who have consented to share their data for research purposes, ensuring that only approved information is stored in the Trusted Zone.
+
+##### Querying the glue table customer_trusted 
+
+![image](https://github.com/user-attachments/assets/23f6b610-c293-46ad-89ef-bab2457561a4)
+
+
+The accelerometer_landing_trusted: is a Python script that utilizes Spark to process and sanitize accelerometer data collected from the Mobile App's Landing Zone. This script is designed to store accelerometer readings only from customers who have consented to share their data for research purposes, ensuring that only trusted data is kept in the Trusted Zone.
+
+##### Querying the glue table accelerometer_trusted
+
+![image](https://github.com/user-attachments/assets/e8eb7c13-84c5-4bdb-b58a-74a0a523fce4)
+
+
+The step_trainer_landing_trusted is a Python script that works with Apache Spark. Its primary function is to read the Step Trainer IoT data stream from S3 and populate a Trusted Zone Glue Table, referred to as "step_trainer_trusted." This table contains data records from Step Trainer, specifically for customers who have accelerometer data and have consented to share their information for research purposes. These customers are referred to as "customers_curated."Curated Zone.
+
+##### Querying the glue table step_trainer_trusted
+
+![image](https://github.com/user-attachments/assets/1a1c389e-0d49-4b01-89dd-b948b49ab9a9)
+
+
+
+##### Athena analysis query on the Curated Zone  
+The customers_trusted_curated is a Python script that utilizes Apache Spark to sanitize customer data in the Trusted Zone. The script processes this data to create a Glue Table within the Curated Zone. This new table exclusively includes customers who possess accelerometer data and have consented to share their information for research purposes. This resultant dataset is referred to as the "customers curated."
+
+##### Querying the glue table customer_trusted
+
+![image](https://github.com/user-attachments/assets/43e50937-969d-4558-af51-7acba7c876d5)
+
+
+Machine_learning_curated: This Python script utilizes Spark to generate an aggregated table named "machine_learning_curated." It compiles Step Trainer readings along with corresponding accelerometer data, ensuring that only information from customers who have consented to share their data is included. The resulting table is then populated in a Glue table for further use in machine-learning applications.
+
+#####  Querying the glue table machine_learning_trusted
+
+![image](https://github.com/user-attachments/assets/accac325-4dfc-4579-8ddc-24f841ed3ca5)
+
+
+
+
+
+
+
+
+        
+
+
+
+
