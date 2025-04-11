@@ -62,12 +62,11 @@ aws iam put-role-policy --role-name my-glue-service-role --policy-name S3Access 
 #### Athena analysis query on the Landing Zone
 ##### Querying the glue table customer_landing
 
-![image](https://github.com/user-attachments/assets/ccb609a3-acf5-4ce5-9b8c-b8cf1c5f9c5f)
-
+https://github.com/WaadAlharbi/Spark-With-STEDI-Human-Balance-Analytics/blob/main/Screenshots/customer_landing.png?raw=true
 
 ##### Querying the glue table accelerometer_landing
 
-![image](https://github.com/user-attachments/assets/13944a50-b3f5-4c5e-991b-f8b1bc5814fe)
+![image alt](https://github.com/user-attachments/assets/13944a50-b3f5-4c5e-991b-f8b1bc5814fe)
 
 
 ##### Querying the glue table step_trainer_landing 
